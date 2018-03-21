@@ -11,7 +11,6 @@ import com.j256.ormlite.table.DatabaseTable
 class Car {
     @DatabaseField(generatedId = true) //Indica que o campo a baixo será o id da tabela
     private var id: Int = 0
-
     @DatabaseField(columnName = "marca") //Indica que o campo a baixo será uma coluna da tabela
     var marca: String = String()
     @DatabaseField(columnName = "modelo") //Indica que o campo a baixo será uma coluna da tabela
