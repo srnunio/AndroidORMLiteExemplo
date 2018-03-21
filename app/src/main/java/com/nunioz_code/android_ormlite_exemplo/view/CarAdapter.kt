@@ -11,7 +11,7 @@ import com.nunioz_code.android_ormlite_exemplo.model.Car
 /**
  * Created by edvaldo on 21/03/18.
  */
-class CarAdpter : RecyclerView.Adapter<RecyclerView.ViewHolder> {
+class CarAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     var listCar: List<Car> = ArrayList()
 
