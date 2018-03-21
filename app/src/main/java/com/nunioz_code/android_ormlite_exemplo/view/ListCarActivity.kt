@@ -11,6 +11,7 @@ import com.nunioz_code.android_ormlite_exemplo.model.DAOCar
 import com.nunioz_code.android_ormlite_exemplo.model.DataBaseHelper
 import kotlinx.android.synthetic.main.activity_create_car.*
 import kotlinx.android.synthetic.main.activity_list_car.*
+import java.util.*
 
 class ListCarActivity : AppCompatActivity() {
 
@@ -25,20 +26,24 @@ class ListCarActivity : AppCompatActivity() {
         recycler.setHasFixedSize(false)
         recycler.layoutManager = LinearLayoutManager(this)
         recycler.adapter = carAdpter
-        carAdpter!!.addItens(dao.queryForAll())
-
         novoCar.setOnClickListener({
             startActivityForResult(
                     Intent(this, CreateCarActivity::class.java), 0
             )
         })
+        updateList()
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        carAdpter!!.addItens(dao.queryForAll())
+       updateList()
     }
 
+    fun updateList(){
+        val list = dao.queryForAll()
+        Collections.reverse(list)
+        carAdpter!!.addItens(list)
+    }
     override fun onDestroy() {
         dbHelper.close()
         super.onDestroy()
