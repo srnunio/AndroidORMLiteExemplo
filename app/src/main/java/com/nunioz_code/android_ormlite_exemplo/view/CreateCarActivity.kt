@@ -32,7 +32,7 @@ class CreateCarActivity : AppCompatActivity() {
 
         val value = dao.create(car) // armazena no banco de dados
         if (value == 1) {
-            Toast.makeText(this, "Registo com sucesso", Toast.LENGTH_LONG).show()
+            Toast.makeText(this, "Sucesso", Toast.LENGTH_LONG).show()
             finish()
         } else {
             Toast.makeText(this, "falha no registo", Toast.LENGTH_LONG).show()
