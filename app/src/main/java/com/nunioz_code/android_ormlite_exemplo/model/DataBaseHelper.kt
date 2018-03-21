@@ -15,7 +15,6 @@ class DataBaseHelper : OrmLiteSqliteOpenHelper {
         private val db = "car.db"
         private val versao = 1
     }
-
     constructor(context:Context) : super(context,db,null,versao)
 
     override fun onCreate(database: SQLiteDatabase?, connectionSource: ConnectionSource?) {
@@ -30,7 +29,4 @@ class DataBaseHelper : OrmLiteSqliteOpenHelper {
      override fun close() {
         super.close()
     }
-
-
-
 }
