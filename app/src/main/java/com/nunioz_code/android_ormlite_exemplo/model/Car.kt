@@ -20,7 +20,6 @@ class Car {
     @DatabaseField(columnName = "matricula") //Indica que o campo a baixo será uma coluna da tabela
     var matricula: String = String()
 
-
     constructor()
     constructor(marca: String, modelo: String, versao: String, matricula: String) {
         this.marca = marca
