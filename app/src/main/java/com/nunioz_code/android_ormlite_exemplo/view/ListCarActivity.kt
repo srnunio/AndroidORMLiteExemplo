@@ -26,22 +26,24 @@ class ListCarActivity : AppCompatActivity() {
         recycler.setHasFixedSize(false)
         recycler.layoutManager = LinearLayoutManager(this)
         recycler.adapter = carAdpter
-        carAdpter!!.addItens(dao.queryForAll())
-
         novoCar.setOnClickListener({
             startActivityForResult(
                     Intent(this, CreateCarActivity::class.java), 0
             )
         })
+        updateList()
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
+       updateList()
+    }
+
+    fun updateList(){
         val list = dao.queryForAll()
         Collections.reverse(list)
         carAdpter!!.addItens(list)
     }
-
     override fun onDestroy() {
         dbHelper.close()
         super.onDestroy()
