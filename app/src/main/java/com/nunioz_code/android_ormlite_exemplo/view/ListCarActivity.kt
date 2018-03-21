@@ -40,7 +40,7 @@ class ListCarActivity : AppCompatActivity() {
     }
 
     fun updateList(){
-        val list = dao.queryForAll()
+        val list = dao.queryForAll() //lista todos os dados existentes em uma tabela
         Collections.reverse(list)
         carAdpter!!.addItens(list)
     }
